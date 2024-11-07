@@ -5,6 +5,22 @@ body {
     color:black;
 }
 
+section {
+    margin: 5px 10px;
+}
+#burgers {
+    background-color: black;
+    color: white;
+}
+
+#contact {
+    background-color: black;
+    color: white;
+}
+button:hover {
+    background-color: blue;
+ }
+
 p {
     text-align: center;
     color: red;
@@ -37,6 +53,7 @@ header {
     width: 100%;
     height: 200px;
     opacity: 0.5;
+
 }
 
 header h1 {
@@ -71,15 +88,7 @@ nav li {
     color:#ff5500;
 }
 
-.burgers {
-    background-color: black;
-    color: white;
-}
 
-.contact {
-    background-color: black;
-    color: white;
-}
 
 #idname {
     text-transform: uppercase;
