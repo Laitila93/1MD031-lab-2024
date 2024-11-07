@@ -1,53 +1,58 @@
 <!DOCTYPE HTML>
 <html lang="en">
     <head>
+        <link rel="stylesheet" type="text/css" href="css\reset.css">
         <link rel="stylesheet" type="text/css" href="css\style.css">
         <title>Bob's Burgers</title>
         <meta charset="utf-8"/>
     </head>
     <body>
-        <header>
-            <h1>Welcome to Bob's Burgers</h1>
-        </header>
-        <main>
-            <nav>Menu items </nav>
-            <section id="burgers">
-                <h3>Select burger</h3>
-            <h4>This is where you execute burger selection</h4>
-            <div style="display: inline-block">
-                <section class="burger">
-                    <h3>The Fire Burger</h3>
 
-                <img src="https://img.freepik.com/free-vector/realistic-burger-illustration_52683-153859.jpg?t=st=1730964219~exp=1730967819~hmac=3186965dab7f3a144a7c56119278acdb5296670ba9225f0fd6975fc1264ea285&w=826" alt="Span" title="Another in-line element" style="width: 200px">
-                <ul>
-                    <li>Gas</li>
-                    <li>Coal</li>
-                    <li>Diesel</li>
-                </ul>
-                </section>
-            </div>
-            <div style="display: inline-block">
+        <main>
+            <header>
+                <h1>Welcome to Bob's Burgers</h1>
+            </header>
+            <section id="burgers">
                 <section>
-                    <h3>The Water Burger</h3>
-                <img src="https://img.freepik.com/free-photo/tasty-hamburger-with-flying-ingredients-splash-sauce-dark-background_90220-1269.jpg?t=st=1730964269~exp=1730967869~hmac=c763a4d12a822b21a88b9fbd25be29be4c3d66953de328577ee41b817e69a851&w=826" alt="Span" title="Another in-line element" style="width: 200px">
-                <ul>
-                    <li>Moist</li>
-                    <li>Sand</li>
-                    <li>Salt</li>
-                </ul>
+                <h3>Select burger</h3>
+                <h4>This is where you execute burger selection</h4>
                 </section>
-            </div>
-            <div style="display: inline-block">
-                <section>
-                    <h3>The Earth Burger</h3>
-                <img src="https://img.freepik.com/premium-photo/close-up-globe-burger-table-against-black-background_1048944-12365361.jpg?w=1060" alt="Span" title="Another in-line element" style="width: 200px">
-                <ul>
-                    <li>Literally the whole world!</li>
-                    <li>Gluten</li>
-                    <li>Nuts</li>
-                </ul>
-                </section>
-            </div>
+                <div class="wrapper">
+                    <div class="box a">
+                        <section class="burger">
+                            <h3>The Fire Burger</h3>
+
+                        <img src="https://img.freepik.com/free-vector/realistic-burger-illustration_52683-153859.jpg?t=st=1730964219~exp=1730967819~hmac=3186965dab7f3a144a7c56119278acdb5296670ba9225f0fd6975fc1264ea285&w=826" alt="Span" title="Another in-line element" style="width: 200px">
+                        <ul>
+                            <li>Gas</li>
+                            <li>Coal</li>
+                            <li>Diesel</li>
+                        </ul>
+                        </section>
+                    </div>
+                    <div class="box b">
+                        <section>
+                            <h3>The Water Burger</h3>
+                        <img src="https://img.freepik.com/free-photo/tasty-hamburger-with-flying-ingredients-splash-sauce-dark-background_90220-1269.jpg?t=st=1730964269~exp=1730967869~hmac=c763a4d12a822b21a88b9fbd25be29be4c3d66953de328577ee41b817e69a851&w=826" alt="Span" title="Another in-line element" style="width: 200px">
+                        <ul>
+                            <li>Moist</li>
+                            <li>Sand</li>
+                            <li>Salt</li>
+                        </ul>
+                        </section>
+                    </div>
+                    <div class="box c">
+                        <section>
+                            <h3>The Earth Burger</h3>
+                        <img src="https://img.freepik.com/premium-photo/close-up-globe-burger-table-against-black-background_1048944-12365361.jpg?w=1060" alt="Span" title="Another in-line element" style="width: 200px">
+                        <ul>
+                            <li>Literally the whole world!</li>
+                            <li>Gluten</li>
+                            <li>Nuts</li>
+                        </ul>
+                        </section>
+                    </div>
+                </div>
             </section>
             <section>
                 <h2>Customer information</h2>
@@ -84,29 +89,30 @@
                             <option selected="selected">Candy</option>
                         </select>
                      </p>
-
+                     <section>
                         <h4>Select a gender:</h4>
-                      
-                        <div>
-                          <input type="radio" id="Male" name="gender" value="Male" checked />
-                          <label for="Male">Male</label>
-                        </div>
-                      
-                        <div>
-                          <input type="radio" id="Female" name="gender" value="Female" />
-                          <label for="Female">Female</label>
-                        </div>
-                      
-                        <div>
-                          <input type="radio" id="Do not wish to provide" name="gender" value="Do not wish to provide" />
-                          <label for="Do not wish to provide">Do not wish to provide</label>
-                        </div>
+
+                            <div>
+                            <input type="radio" id="Male" name="gender" value="Male" checked />
+                            <label for="Male">Male</label>
+                            </div>
+                        
+                            <div>
+                            <input type="radio" id="Female" name="gender" value="Female" />
+                            <label for="Female">Female</label>
+                            </div>
+                        
+                            <div>
+                            <input type="radio" id="Do not wish to provide" name="gender" value="Do not wish to provide" />
+                            <label for="Do not wish to provide">Do not wish to provide</label>
+                            </div>
+                        </section>
 
                 </form>
 
                 <button type="submit">
                     <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTrvlSrN1N29iRIz_s9KkOE-_g5klfNJ_sIfQ&s" style="width: 200px">
-                  </button>
+                </button>
             </section>
             
         </main>
