@@ -24,48 +24,46 @@
                 <form>
                     <p>
                         <label for="Full name">Name</label><br>
-                        <input type="text" id="Full name" name="fn" required="required" placeholder="Full name">
+                        <input v-model="name" placeholder="Full name" />
+                        <div>Name: {{name}}</div>
                     </p>
                     <p>
                         <label for="email">E-mail</label><br>
-                        <input type="email" id="email" name="em" required="required" placeholder="E-mail address">
+                        <input v-model="email" placeholder="E-mail adress" />
                     </p>
                     <p>
                         <label for="Street">Street</label><br>
-                        <input type="text" id="Street" name="ln" placeholder="Street">
+                        <input v-model="street" placeholder="Street" />
                     </p>
                     <p>
                         <label for="House">House</label><br>
-                        <input type="text" id="House" name="ln" placeholder="House">
+                        <input v-model="house" placeholder="House" />
                     </p>
                     <p>
-                        <label for="payment option">Payment option</label>
-                        <select id="payment option" name="rcp">
+                        <label for="payment option">Payment option</label><br>
+                        <select v-model="selected">
+                          <option disabled value="">Please select one</option>
                             <option>Bitcoin</option>
                             <option>Cash</option>
                             <option>Fish</option>
                             <option>Gold</option>
-                            <option selected="selected">Candy</option>
+                            <option>Candy</option>
                         </select>
                      </p>
                      <section>
-                        <h4>Select a gender:</h4>
+                      <h4>Select a gender:</h4>
+                      <div>
+                        <input type="radio" id="male" value="male" v-model="picked" name="gender" />
+                        <label for="male">Male</label><br>
 
-                            <div>
-                            <input type="radio" id="Male" name="gender" value="Male" checked />
-                            <label for="Male">Male</label>
-                            </div>
-                        
-                            <div>
-                            <input type="radio" id="Female" name="gender" value="Female" />
-                            <label for="Female">Female</label>
-                            </div>
-                        
-                            <div>
-                            <input type="radio" id="Do not wish to provide" name="gender" value="Do not wish to provide" />
-                            <label for="Do not wish to provide">Do not wish to provide</label>
-                            </div>
-                        </section>
+                        <input type="radio" id="female" value="female" v-model="picked" name="gender" />
+                        <label for="female">Female</label><br>
+
+                        <input type="radio" id="noPreference" value="Do not wish to provide" v-model="picked" name="gender" />
+                        <label for="noPreference">Do not wish to provide</label><br>
+                        <div>Picked: {{ picked }}</div>
+                      </div>
+                    </section>
 
                 </form>
 
