@@ -21,11 +21,11 @@
                 <h3>Delivery information:</h3>
             </section>
             <section id="contact">
+
                 <form>
                     <p>
-                        <label for="Full name">Name</label><br>
-                        <input v-model="name" placeholder="Full name" />
-                        <div>Name: {{name}}</div>
+                        <label for="fullName">Name</label><br>
+                        <input v-model="fullName" placeholder="Full name" />
                     </p>
                     <p>
                         <label for="email">E-mail</label><br>
@@ -40,8 +40,8 @@
                         <input v-model="house" placeholder="House" />
                     </p>
                     <p>
-                        <label for="payment option">Payment option</label><br>
-                        <select v-model="selected">
+                        <label for="paymentOption">Payment option</label><br>
+                        <select v-model="paymentOption">
                           <option disabled value="">Please select one</option>
                             <option>Bitcoin</option>
                             <option>Cash</option>
@@ -61,13 +61,12 @@
 
                         <input type="radio" id="noPreference" value="Do not wish to provide" v-model="picked" name="gender" />
                         <label for="noPreference">Do not wish to provide</label><br>
-                        <div>Picked: {{ picked }}</div>
                       </div>
                     </section>
 
                 </form>
 
-                <button type="submit">
+                <button type="button" v-on:click="printFormData">
                     <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTrvlSrN1N29iRIz_s9KkOE-_g5klfNJ_sIfQ&s" style="width: 200px">
                 </button>
             </section>
@@ -110,10 +109,24 @@ export default {
   },
   data: function () {
     return {
-      burgers:menu
+      burgers:menu,
+      fullName: "",
+      email: "",
+      street: "",
+      house: "",
+      paymentOption: "",
+      picked: ""
     }
   },
   methods: {
+    printFormData() {
+      console.log("Full Name:", this.fullName);
+      console.log("Email:", this.email);
+      console.log("Street:", this.street);
+      console.log("House:", this.house);
+      console.log("Selected Payment Option:", this.paymentOption);
+      console.log("Gender Picked:", this.picked);
+    },
     getOrderNumber: function () {
       return Math.floor(Math.random()*100000);
     },
