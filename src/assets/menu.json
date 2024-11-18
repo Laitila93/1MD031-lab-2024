@@ -2,41 +2,35 @@
     "name": "The Fire Burger", 
     "kCal": 500, 
     "url": "https://img.freepik.com/free-vector/realistic-burger-illustration_52683-153859.jpg?t=st=1730964219~exp=1730967819~hmac=3186965dab7f3a144a7c56119278acdb5296670ba9225f0fd6975fc1264ea285&w=826",
-    "lactose": false, 
-    "gluten": false
+    "lactose": true, 
+    "gluten": true
 },
 {
     "name": "The Water Burger", 
-    "kCal": 500, 
+    "kCal": 600, 
     "url": "https://img.freepik.com/free-photo/tasty-hamburger-with-flying-ingredients-splash-sauce-dark-background_90220-1269.jpg?t=st=1730964269~exp=1730967869~hmac=c763a4d12a822b21a88b9fbd25be29be4c3d66953de328577ee41b817e69a851&w=826",
     "lactose": false, 
-    "gluten": false
+    "gluten": true
 },
 {
     "name": "The Earth Burger", 
-    "kCal": 500, 
+    "kCal": 800, 
     "url": "https://img.freepik.com/premium-photo/close-up-globe-burger-table-against-black-background_1048944-12365361.jpg?w=1060",
-    "lactose": false, 
+    "lactose": true, 
     "gluten": false
 },
 {
-    "name": "The Fire Burger", 
-    "kCal": 500, 
+    "name": "The Fire Burger (2x)", 
+    "kCal": 1000, 
     "url": "https://img.freepik.com/free-vector/realistic-burger-illustration_52683-153859.jpg?t=st=1730964219~exp=1730967819~hmac=3186965dab7f3a144a7c56119278acdb5296670ba9225f0fd6975fc1264ea285&w=826",
-    "lactose": false, 
+    "lactose": true, 
     "gluten": false
 },
 {
-    "name": "The Water Burger", 
-    "kCal": 500, 
+    "name": "The Water Burger (2x)", 
+    "kCal": 1200, 
     "url": "https://img.freepik.com/free-photo/tasty-hamburger-with-flying-ingredients-splash-sauce-dark-background_90220-1269.jpg?t=st=1730964269~exp=1730967869~hmac=c763a4d12a822b21a88b9fbd25be29be4c3d66953de328577ee41b817e69a851&w=826",
     "lactose": false, 
-    "gluten": false
-},
-{
-    "name": "The Earth Burger", 
-    "kCal": 500, 
-    "url": "https://img.freepik.com/premium-photo/close-up-globe-burger-table-against-black-background_1048944-12365361.jpg?w=1060",
-    "lactose": false, 
-    "gluten": false
-}]
+    "gluten": true
+}
+]

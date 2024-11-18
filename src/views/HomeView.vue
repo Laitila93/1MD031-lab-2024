@@ -1,58 +1,66 @@
 <template>
 
 <main>
-            <header>
-                <h1>Welcome to Bob's Burgers</h1>
-            </header>
-            <section id="burgers">
-                <section>
-                <h3>Select burger</h3>
-                <h4>This is where you execute burger selection</h4>
-                </section>
-                <Burger v-for="burger in burgers"
+    <header>
+        <h1>Welcome to Bob's Burgers</h1>
+    </header>
+    <section id="burgers">
+        <section>
+            <h3>Select burger</h3>
+            <h4>This is where you execute burger selection</h4>
+        </section>
+        <Burger v-for="burger in burgers"
             v-bind:burger="burger" 
-            v-bind:key="burger.name"/>
-            </section>
-            <section>
-                <h2>Customer information</h2>
-                <h4>This is where you provide necessary information</h4>
-            </section>
-            <section>
-                <h3>Delivery information:</h3>
-            </section>
-            <section id="contact">
+            v-bind:key="burger.name"
+            v-on:orderedBurger="addToOrder($event)"/>
+    </section>
 
-                <form>
-                    <p>
-                        <label for="fullName">Name</label><br>
-                        <input v-model="fullName" placeholder="Full name" />
-                    </p>
-                    <p>
-                        <label for="email">E-mail</label><br>
-                        <input v-model="email" placeholder="E-mail adress" />
-                    </p>
-                    <p>
-                        <label for="Street">Street</label><br>
-                        <input v-model="street" placeholder="Street" />
-                    </p>
-                    <p>
-                        <label for="House">House</label><br>
-                        <input v-model="house" placeholder="House" />
-                    </p>
-                    <p>
-                        <label for="paymentOption">Payment option</label><br>
-                        <select v-model="paymentOption">
-                          <option disabled value="">Please select one</option>
-                            <option>Bitcoin</option>
-                            <option>Cash</option>
-                            <option>Fish</option>
-                            <option>Gold</option>
-                            <option>Candy</option>
-                        </select>
-                     </p>
-                     <section>
-                      <h4>Select a gender:</h4>
-                      <div>
+    <section id="contact">
+        <section>
+            <h2>Customer information</h2>
+            <h4>This is where you provide necessary information</h4>
+        </section>
+        <section>
+            <h3>Delivery information:</h3>
+        </section>
+        <form>
+            <p>
+                <label for="fullName">Name</label><br>
+                <input v-model="fullName" placeholder="Full name" />
+            </p>
+            <p>
+                <label for="email">E-mail</label><br>
+                <input v-model="email" placeholder="E-mail adress" />
+            </p>
+            <p>Please indicate point of delivery:</p>
+            <div id="mapScroll">
+                <div id="map" v-on:click="setLocation" style="position: relative;">
+                    <div v-bind:style="{ 
+                        position: 'absolute', 
+                        left: location.x + 'px', 
+                        top: location.y + 'px', 
+                        width: '10px', 
+                        height: '10px', 
+                    }">
+                    T
+                    </div>
+                </div>
+            </div>
+                
+            <p>
+                <label for="paymentOption">Payment option</label><br>
+                <select v-model="paymentOption">
+                    <option disabled value="">Please select one</option>
+                    <option>Bitcoin</option>
+                    <option>Cash</option>
+                    <option>Fish</option>
+                    <option>Gold</option>
+                    <option>Candy</option>
+                </select>
+            </p>
+                <section>
+                    <h4>Select a gender:</h4>
+                    <div>
                         <input type="radio" id="male" value="male" v-model="picked" name="gender" />
                         <label for="male">Male</label><br>
 
@@ -61,21 +69,21 @@
 
                         <input type="radio" id="noPreference" value="Do not wish to provide" v-model="picked" name="gender" />
                         <label for="noPreference">Do not wish to provide</label><br>
-                      </div>
-                    </section>
+                    </div>
+                </section>
 
-                </form>
+        </form>
 
-                <button type="button" v-on:click="printFormData">
-                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTrvlSrN1N29iRIz_s9KkOE-_g5klfNJ_sIfQ&s" style="width: 200px">
-                </button>
-            </section>
-            
-        </main>
-        <hr>
-        <footer>
-            &copy;2024 Burger.inc
-        </footer>
+        <button type="button" v-on:click="addOrder">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTrvlSrN1N29iRIz_s9KkOE-_g5klfNJ_sIfQ&s" style="width: 200px">
+        </button>
+    </section>
+
+    </main>
+    <hr>
+    <footer>
+    &copy;2024 Burger.inc
+    </footer>
 </template>
 
 <script>
@@ -112,13 +120,24 @@ export default {
       burgers:menu,
       fullName: "",
       email: "",
-      street: "",
-      house: "",
       paymentOption: "",
-      picked: ""
+      picked: "",
+      orderedBurgers: {},
+      location: {   x: 0,
+                    y: 0
+                }
     }
   },
   methods: {
+    setLocation(event) {
+        this.location = {x: event.clientX - 10 - event.currentTarget.getBoundingClientRect().left,
+            y: event.clientY - 10 - event.currentTarget.getBoundingClientRect().top};
+    },
+
+    addToOrder: function (event) {
+        this.orderedBurgers[event.name] = event.amount;
+        console.log("orderedBurger", this.orderedBurgers);
+    },
     printFormData() {
       console.log("Full Name:", this.fullName);
       console.log("Email:", this.email);
@@ -130,25 +149,37 @@ export default {
     getOrderNumber: function () {
       return Math.floor(Math.random()*100000);
     },
-    addOrder: function (event) {
-      var offset = {x: event.currentTarget.getBoundingClientRect().left,
-                    y: event.currentTarget.getBoundingClientRect().top};
-      socket.emit("addOrder", { orderId: this.getOrderNumber(),
-                                details: { x: event.clientX - 10 - offset.x,
-                                           y: event.clientY - 10 - offset.y },
-                                orderItems: ["Beans", "Curry"]
+    addOrder: function () {
+      
+                    socket.emit("addOrder", { orderId: this.getOrderNumber(),
+                                details: { x: this.location.x,
+                                           y: this.location.y,
+                                        name: this.fullName,
+                                        payment: this.paymentOption,
+                                        gender: this.picked},
+                                orderItems: this.orderedBurgers
                               }
                  );
+                      
     }
+    
   }
 }
 </script>
 
 <style>
+
   #map {
-    width: 300px;
-    height: 300px;
-    background-color: red;
+    width: 1920px;
+    height: 1078px;
+    background: url("/img/polacks.jpg");
+    
+  }
+
+
+  #mapScroll {
+    overflow: scroll;
+    height: 500px;
   }
 
   @import url('https://fonts.googleapis.com/css2?family=Agbalumo&family=Cormorant:wght@700&display=swap');
@@ -163,7 +194,7 @@ section {
     margin: 5px 10px;
 }
 button {
-    padding: 10px;
+    padding: 5px;
 }
 #burgers {
     background-color: black;
@@ -173,7 +204,7 @@ button {
 }
 
 #contact {
-
+    padding: 10px;
     border: 2px dotted black;
 }
 button:hover {
@@ -185,9 +216,7 @@ p {
 
     color: red;
 }
-li  {
-    font-weight: bold;
-}
+
 
 h1 {
     font-family: Arial, sans-serif;
